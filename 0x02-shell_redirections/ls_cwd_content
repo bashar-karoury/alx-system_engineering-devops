@@ -1,0 +1,16 @@
+total 56
+drwxr-xr-x 2 bashar bashar 4096 Sep  4 22:39 .
+drwxr-xr-x 6 bashar bashar 4096 Sep  4 17:16 ..
+-rwxr--r-- 1 bashar bashar   32 Sep  4 20:56 0-hello_world
+-rwxr--r-x 1 bashar bashar   28 Sep  4 22:30 1-confused_smiley
+-rwxr--r-- 1 bashar bashar   28 Sep  4 18:40 2-hellofile
+-rwxr--r-- 1 bashar bashar   39 Sep  4 20:52 3-twofiles
+-rwxr--r-- 1 bashar bashar   36 Sep  4 20:30 4-lastlines
+-rwxr--r-- 1 bashar bashar   36 Sep  4 20:30 5-firstlines
+-rwxr--r-- 1 bashar bashar   36 Sep  4 20:50 6-third_line
+-rwxr--r-- 1 bashar bashar   43 Sep  4 21:17 7-file
+-rwxr--r-- 1 bashar bashar   36 Sep  4 22:39 8-cwd_state
+-rw-r--r-- 1 bashar bashar  182 Sep  4 17:22 README.md
+-rw-r--r-- 1 bashar bashar    0 Sep  4 22:39 ls_cwd_content
+-rw-r--r-- 1 bashar bashar   42 Sep  4 20:36 testfile
+-rw-r--r-- 1 bashar bashar   12 Sep  4 20:51 testfile2
