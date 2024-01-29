@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# This script is displaying "Best School" 10 times
+awk '{
+    # Replace all occurrences of "[...]" with a placeholder
+    gsub(/\[[^\]]*\]/, "[placeholder]")
+    # Replace all occurrences of "..."" with a placeholder
+    gsub(/"[^"]*"/, "\"placeholder\"")
+
+    # Print the modified line
+    print $1, $6
+}' apache-access.log | uniq -c | sort -r
+
