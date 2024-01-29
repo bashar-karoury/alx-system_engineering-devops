@@ -16,14 +16,13 @@ case $1 in
 		;;
 	stop)
 		pkill -9 "./manage_my_proc" -f
-		rm "$FILE"
+		rm "$FILE" -f
 		echo "manage_my_process stopped"
 		;;
 	restart)
-		pkill -9 "./manage_my_proc"
-                rm "$FILE"
+		pkill -9 "./manage_my_proc" -f
                 ./manage_my_process &
-                pgrep -f "./manage_my_process" > "$FILE"
+                pgrep -f "./manage_my_process" >> "$FILE"
                 echo "manage_my_process restarted"
 		;;
 	*)
