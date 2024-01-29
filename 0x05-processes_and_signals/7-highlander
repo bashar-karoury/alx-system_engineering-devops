@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# This script is displays "To infinity and beyond" indefinitely
+
+trap 'kill -9 $$' SIGTERM 
+while true
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
+
