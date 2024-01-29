@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# This script managed manamge_my_process
+
+#if [$# -eq 0]
+#then
+#	echo "Usage: manage_my_process {start|stop|restart}"
+#	exit
+#fi
+
+FILE="/var/run/my_process.pid"
+case $1 in
+	start)
+		./manage_my_process &
+		pgrep -f "./manage_my_process" > "$FILE"
+		echo "manage_my_process started"
+		;;
+	stop)
+		pkill -9 "./manage_my_proc" -f
+		rm "$FILE"
+		echo "manage_my_process stopped"
+		;;
+	restart)
+		pkill -9 "./manage_my_proc"
+                rm "$FILE"
+                ./manage_my_process &
+                pgrep -f "./manage_my_process" > "$FILE"
+                echo "manage_my_process restarted"
+		;;
+	*)
+		echo "Usage: manage_my_process {start|stop|restart}"
+		;;
+esac
+
+
+
