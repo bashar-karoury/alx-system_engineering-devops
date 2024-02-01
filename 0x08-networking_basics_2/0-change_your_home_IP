@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# this script replace localhost and facebook.com assigned ips
+cp /etc/hosts ~/hosts.new
+target=~/hosts.new
+sub=127.0.0.2
+sed -i "/.*\..*.\.*.\.*\tlocalhost/d" "$target"
+echo -e "$sub\tlocalhost" >> "$target"
+sub2=8.8.8.8
+sed -i "/.*\..*.\.*.\.*\tfacebook.com/d" "$target"
+echo -e "$sub2\tfacebook.com" >> "$target"
+cp -f ~/hosts.new /etc/hosts
