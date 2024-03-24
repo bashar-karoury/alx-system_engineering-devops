@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+# script to connect to server using specific private key file
 ssh ubuntu@54.167.172.188 -i ~/.ssh/school
