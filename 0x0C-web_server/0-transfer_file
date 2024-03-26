@@ -11,5 +11,10 @@ PATH_TO_FILE="$1"
 IP="$2"
 USERNAME="$3"
 PATH_TO_KEY="$4"
-scp -i "$PATH_TO_KEY" "$PATH_TO_FILE" "$USERNAME"@"$IP":~/
+
+if [ -z "$4" ]; then
+    scp "$PATH_TO_FILE" "$USERNAME"@"$IP":~/
+else
+    scp -i "$PATH_TO_KEY" "$PATH_TO_FILE" "$USERNAME"@"$IP":~/
+fi
 
