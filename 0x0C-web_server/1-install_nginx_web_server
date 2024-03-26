@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Bash script to install Nginx server
+sudo apt update
+sudo apt install nginx -y
+sudo service nginx start
