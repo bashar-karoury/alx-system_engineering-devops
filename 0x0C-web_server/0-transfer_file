@@ -11,8 +11,9 @@ IP="$2"
 USERNAME="$3"
 PATH_TO_KEY="$4"
 
-if [ -z "$4" ]; then
-    scp "$PATH_TO_FILE" "$USERNAME"@"$IP":~/
-else
-    scp -i "$PATH_TO_KEY" "$PATH_TO_FILE" "$USERNAME"@"$IP":~/
-fi
+scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i "$PATH_TO_KEY" "$PATH_TO_FILE" "$USERNAME"@"$IP":~/
+# if [ -z "$4" ]; then
+#    scp "$PATH_TO_FILE" "$USERNAME"@"$IP":~/
+# else
+#    scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i "$PATH_TO_KEY" "$PATH_TO_FILE" "$USERNAME"@"$IP":~/
+# fi
