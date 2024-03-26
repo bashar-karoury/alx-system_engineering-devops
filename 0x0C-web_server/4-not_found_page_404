@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Bash script to install Nginx server
+sudo apt update
+sudo apt install nginx -y
+sudo sed -i '53a location / {\n return 404 "Ceci n'\''est pas une page";\n}' /etc/nginx/sites-available/default
+sudo service nginx restart
