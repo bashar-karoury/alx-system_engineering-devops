@@ -3,5 +3,5 @@
 sudo apt update
 sudo apt install nginx -y
 #sudo sed -i '53a location /redirect_me {\n return 301;\n}' /etc/nginx/sites-available/default
-awk 'BEGIN {RS=""; ORS="\n"} {gsub(/[^#]location [^}]+}/, "location /redirect_me {\n return 301;\n}", $0); print}' /etc/nginx/sites-available/default > temp_file && sudo mv temp_file /etc/nginx/sites-available/default
+awk 'BEGIN {RS=""; ORS="\n"} {gsub(/[^#]location [^}]+}/, "\nlocation /redirect_me {\n return 301;\n}", $0); print}' /etc/nginx/sites-available/default > temp_file && sudo mv temp_file /etc/nginx/sites-available/default
 sudo service nginx restart
