@@ -2,5 +2,6 @@
 # Bash script to install Nginx server
 sudo apt update
 sudo apt install nginx -y
-sudo sed -i '53a location / {\n return 404 "Ceci n'\''est pas une page";\n}' /etc/nginx/sites-available/default
+#sudo sed -i '53a location / {\n return 404 "Ceci n'\''est pas une page";\n}' /etc/nginx/sites-available/default
+awk 'BEGIN {RS=""; ORS="\n"} {gsub(/[^#]location [^}]+}/, "location / {\n return 404 \"Ceci n'\''est pas une page\";\n}", $0); print}' /etc/nginx/sites-available/default  > temp_file && sudo mv temp_file /etc/nginx/sites-available/default
 sudo service nginx restart
