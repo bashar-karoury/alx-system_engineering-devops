@@ -23,7 +23,7 @@ server {
     }
 
     location / {
-	return 200 "Hello World!
+	return 200 "Hello World!";
     }
 }
 EOF
