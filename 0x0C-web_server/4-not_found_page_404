@@ -2,8 +2,25 @@
 # Bash script to install Nginx server
 sudo apt update
 sudo apt install nginx -y
-#sudo sed -i '53a location / {\n return 404 "Ceci n'\''est pas une page";\n}' /etc/nginx/sites-available/default
-sudo echo "Ceci n'est pas une page" | sudo tee /var/www/html/error404.html
-awk 'BEGIN {RS=""; ORS="\n"} {gsub(/[^#]location [^}]+}/, "\nlocation / {\n internal;\n}", $0); print}' /etc/nginx/sites-available/default  > temp_file && sudo mv temp_file /etc/nginx/sites-available/default
- awk 'BEGIN {RS=""; ORS="\n"} {gsub(/[^#]location [^}]+}/, "\n& \nerror_page 404 /error404.html;\n", $0); print}' /etc/nginx/sites-available/default  > temp_file && sudo mv temp_file /etc/nginx/sites-available/default
+file="server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    root /var/www/html;
+
+    index index.html index.htm index.nginx-debian.html;
+
+    server_name _;
+
+    location / {
+        try_files \$uri \$uri/ =404;
+        add_header X-Served-By \$hostname;
+    }
+    error_page 404 /error404.html;
+    location /redirect_me {
+        return 301;
+    }
+}"
+sudo echo -e "Ceci n'est pas une page\n" | sudo tee /var/www/html/error404.html
+echo "$file" |sudo  tee /etc/nginx/sites-available/default
 sudo service nginx restart
