@@ -22,6 +22,10 @@ server {
         try_files $uri $uri/ =404;
         add_header X-Served-By $hostname;
     }
+    error_page 404 /error404.html;
+    location /redirect_me {
+        return 301;
+    }
 }
 EOF
 
