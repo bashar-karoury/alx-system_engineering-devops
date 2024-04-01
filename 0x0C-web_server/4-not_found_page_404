@@ -21,6 +21,6 @@ file="server {
         return 301;
     }
 }"
-sudo echo -e "Ceci n'est pas une page\n" | sudo tee /var/www/html/error404.html
+sudo echo  "Ceci n'est pas une page" | sudo tee /var/www/html/error404.html
 echo "$file" |sudo  tee /etc/nginx/sites-available/default
 sudo service nginx restart
