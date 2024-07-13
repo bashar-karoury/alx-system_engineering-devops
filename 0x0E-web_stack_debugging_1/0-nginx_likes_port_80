@@ -1,18 +1,4 @@
 #!/usr/bin/env bash
 # this script ensures that Nginx is running and listening on port 80
-file="server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
-
-    root /var/www/html;
-
-    index index.html index.htm index.nginx-debian.html;
-
-    server_name _;
-
-    location / {
-        try_files \$uri \$uri/ =404;
-    }
-}"
-echo "$file" | sudo  tee /etc/nginx/sites-available/default
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 sudo service nginx restart
