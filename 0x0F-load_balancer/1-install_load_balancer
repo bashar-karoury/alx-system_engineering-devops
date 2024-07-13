@@ -4,6 +4,7 @@ sudo apt-get install --no-install-recommends software-properties-common -y
 sudo add-apt-repository ppa:vbernat/haproxy-2.8 -y
 sudo apt-get install haproxy=2.8.\* -y
 
+
 content="defaults
         log     global
         mode    http
@@ -26,8 +27,8 @@ frontend  server-frontend
         default_backend server-backend
 backend server-backend
         balance roundrobin
-        server web-01 34.232.66.69:80 check
-        server web-02 54.172.81.92:80 check"
+        server web-01 54.226.5.216:80 check
+        server web-02 54.87.171.248:80 check"
 echo "$content" | sudo  tee /etc/haproxy/haproxy.cfg
 echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
 sudo service haproxy restart
