@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Bash script that runs whoami command under provided argument
+
+# Check if exactly one argument is provided
+if [ $# -ne 1 ]; then
+  echo "Error: Please provide exactly one argument."
+  echo "Usage: $0 argument"
+  exit 1
+fi
+
+# Access the argument using the positional parameter $1
+argument="$1"
+
+# Do something with the argument
+sudo -u "$argument" whoami
