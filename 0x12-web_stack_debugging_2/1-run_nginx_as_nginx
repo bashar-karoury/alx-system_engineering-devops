@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Bash script to configure nginx to run under nginx user
+
+sudo useradd -r -s /sbin/nologin nginx
+sudo chown -R nginx:nginx /etc/nginx
+sudo sed -i 's/^user .*/user nginx;/' /etc/nginx/nginx.conf
+sudo sed -i 's/^\s*listen [0-9]* default_server;/    listen 8080 default_server;/' /etc/nginx/sites-enabled/default
+sudo systemctl restart nginx
