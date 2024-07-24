@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#script to dump a back of mysql database and compress it to .tar.gz archive
+sudo mysqldump -u root -p'$1' tyrell_corp | sudo tee backup.sql
+date=$(date +"%d-%m-%Y")
+tar -czf "$date.tar.gz" backup.sql
+
