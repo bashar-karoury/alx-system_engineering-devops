@@ -3,6 +3,10 @@
 
 sudo useradd -r -s /sbin/nologin nginx
 sudo chown -R nginx:nginx /etc/nginx
+sudo chown -R nginx:nginx /var/log/nginx
+sudo chown -R nginx:nginx /var/www/html
+sudo chown -R nginx:nginx /var/lib/nginx/
+sudo chown -R nginx:nginx /run/nginx.pid
 sudo sed -i 's/^user .*/user nginx;/' /etc/nginx/nginx.conf
 sudo sed -i 's/^\s*listen [0-9]* default_server;/    listen 8080 default_server;/' /etc/nginx/sites-enabled/default
-sudo systemctl restart nginx
+sudo -u nginx nginx -c  /etc/nginx/nginx.conf
