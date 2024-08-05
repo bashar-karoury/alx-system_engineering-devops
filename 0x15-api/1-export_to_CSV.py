@@ -10,7 +10,7 @@ if __name__ == "__main__":
         # get name of userid
         usersUrl = "https://jsonplaceholder.typicode.com/users/{}".format(id)
         userInfo = requests.get(usersUrl).json()
-        userName = userInfo.get("name")
+        userName = userInfo.get("username")
         url = "https://jsonplaceholder.typicode.com/todos"
         response = requests.get(url)
         # print("status code ", response.status_code)
