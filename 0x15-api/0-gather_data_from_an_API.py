@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" script with a function to get info about TODOs of user id
+""" Module to get info about TODOs of user id from API
 """
 import sys
 import requests
