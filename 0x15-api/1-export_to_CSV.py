@@ -22,7 +22,7 @@ if __name__ == "__main__":
                                                                     "title")])
         # write to file
         with open('{}.csv'.format(id), mode='w', newline='') as file:
-            writer = csv.writer(file)
+            writer = csv.writer(file, quoting=csv.QUOTE_ALL)
 
             # Write the data row by row
             for task in tasks:
