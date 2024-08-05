@@ -1,11 +1,15 @@
 #!/usr/bin/python3
 """ Module to get info about TODOs of user id from API
 """
-import sys
 import requests
+import sys
 if __name__ == "__main__":
     if sys.argv[1]:
         id = sys.argv[1]
+        # get name of userid
+        usersUrl = "https://jsonplaceholder.typicode.com/users/{}".format(id)
+        userInfo = requests.get(usersUrl).json()
+        userName = userInfo.get("name")
         url = "https://jsonplaceholder.typicode.com/todos"
         response = requests.get(url)
         # print("status code ", response.status_code)
@@ -19,6 +23,6 @@ if __name__ == "__main__":
                     completed.append(todo.get("title"))
 
         print("Employee {} is done with tasks({}/{}):".format(
-                                    id, len(completed), tasks_cout))
+                                    userName, len(completed), tasks_cout))
         for item in completed:
             print("\t", item)
