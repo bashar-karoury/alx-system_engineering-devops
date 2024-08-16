@@ -25,7 +25,6 @@ def recurse(subreddit, hot_list=[], after="NULL"):
             hot_list.append(child['data']['title'])
         return recurse(subreddit, hot_list, after=after)
     else:
-        print("invalid", response.status_code)
         return None
 
 
