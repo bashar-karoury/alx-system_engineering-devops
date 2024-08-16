@@ -10,15 +10,8 @@ def number_of_subscribers(subreddit):
     """ eturns the number of subscribers (not active users,
         total subscribers) for a given subreddit
     """
-    # URL with parameters
     # print(sys.argv[1])
     url = 'https://www.reddit.com/r/{}/about.json'.format(sys.argv[1])
-
-    # Query parameters
-    # params = {'key1': 'value1', 'key2': 'value2'}
-
-    # Custom headers
-    # headers = {'Authorization': 'Bearer your_token_here'}
     response = requests.get(url, allow_redirects=False)
 
     if response.status_code == 200:
