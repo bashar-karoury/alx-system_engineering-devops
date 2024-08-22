@@ -1,3 +1,15 @@
 #!/usr/bin/env bash
 # bash script to tell the master Gunicorn renewed all the workers.
-pkill -HUP gunicorn
+# pkill -HUP gunicorn
+# Get the Gunicorn master process ID
+ PID=$(cat /path/to/your/gunicorn.pid)
+
+# Check if the PID file exists and contains a valid PID
+if [ -n "$PID" ] && [ -e /proc/$PID ]; then
+  echo "Reloading Gunicorn master process with PID $PID..."
+  # Send the HUP signal to the Gunicorn master process
+  kill -HUP $PID
+  echo "Reload signal sent successfully."
+else
+  echo "Gunicorn master process not found or not running."
+fi
