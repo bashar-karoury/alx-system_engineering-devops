@@ -1,5 +1,5 @@
 # This Manifest fixs apache2 server 500 status code error
-$command = "sed -i 's/worker_processes 4;/worker_processes 40;/' /etc/nginx/nginx.conf"
+$command = "sed -i 's/15/200/' /etc/default/nginx"
 exec { 'raise limit of workers':
   command => $command,
   path    => ['/bin', '/usr/bin'],
